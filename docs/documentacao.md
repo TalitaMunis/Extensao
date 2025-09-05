@@ -36,6 +36,25 @@
 
 ---
 
+#### Diagrama modelo relacional do banco de dados
+
+```
+┌─────────────┐          ┌─────────────────────────────┐
+│  usuarios   │          │   registro_diario_sono      │
+│-------------│          │-----------------------------│
+│ Id (PK)     │◄─────────┤ Id (FK)                     │
+│ Sexo        │          │ Duracao_sono                │
+│ Idade       │          │ Qualidade_sono              │
+│ Cargo       │          │ Nivel_atividade_fisica      │
+│ Imc         │          │ Nivel_stress                │
+└─────────────┘          │ Pressao_arterial            │
+                         │ Media_frequencia_cardiaca   │
+                         │ Passos_dados_dia            │
+                         │ Disturbio_sono              │
+                         └─────────────────────────────┘
+
+```
+
 ### ⚙️ Requisitos Não Funcionais
  
 - Código modular e limpo com boas práticas de Java  
