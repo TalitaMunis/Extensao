@@ -6,76 +6,65 @@
 - Cadastrar usuário  
 - Editar usuário  
 - Ver usuário  
-- Autenticação via JWT  
-- Perfis de acesso: usuário, pesquisador, administrador
+- Perfis de acesso: usuário
 
-#### Coleta e Análise de Dados
-- Informar quantidade de horas de sono  
-- Registrar dados diários de sono, atividade física e estresse  
-- Calcular IMC  
-- Calcular média de sono por semana/mês/período personalizado  
-- Avaliar qualidade do sono com base em múltiplos fatores  
-- Analisar correlação entre estilo de vida e qualidade do sono  
-- Notificar usuário sobre padrões preocupantes
+#### Fluxo processual
+- Usuário se cadastra na plataforma
+- Usuário loga na plataforma
+- Usuário é direcionado para preencher os dados de cadastro
+- Usuário visualiza área para preencher as informações diárias dado o caso de já não forem preenchidas no dia atual
+- Usuário visualiza gráficos e seus dados ao longo dos dias que estão registrados no banco de dados
+- (Extra) Usuário recebe dados informátivos a respeito de sua saúde do sono em comparação com a contida no banco de dados
 
-#### Visualização e Relatórios
-- Retornar média de sono da população  
-- Exibir dicas para sono de qualidade  
-- Gerar relatório personalizado de saúde  
-- Consultar histórico de sono por período  
-- Filtrar usuários por faixa etária, sexo ou ocupação   
-- Painel com resumo de saúde e estilo de vida  
-- Aba de ajuda para o usuário  
+
+#### Coleta de Dados do Usuário
+- Informar nome;
+- Informar e-mail
+- idade
+- sexo
+- cargo/Trabalho
+- Categoria de IMC
+
+#### Coleta de Dados por inserção diária
+- Duração (em horas) da noite de sono
+- Nível de atividade física média 
+- Nível de estresse
+- Pressão arterial (última verificação)
+- Batimento cardíaco média
+- Passos diários
+- Possui ou não disturbio de sono
 
 ---
 
 ### ⚙️ Requisitos Não Funcionais
-
-- Tempo de resposta inferior a 2 segundos para consultas simples  
-- Suporte a pelo menos 100 usuários simultâneos  
-- Documentação interativa via Swagger  
+ 
 - Código modular e limpo com boas práticas de Java  
 - Banco de dados relacional com integridade referencial (PostgreSQL)  
-- Logs de acesso e erros para auditoria  
-- Testes automatizados para endpoints críticos
-
----
-
-### 🔐 Requisitos de Segurança
-
-- Autenticação via token JWT  
-- Criptografia de dados sensíveis (ex: pressão arterial, IMC)  
-- Controle de acesso por perfil  
-- Proteção contra ataques (SQL Injection, XSS)  
-- Conformidade com a LGPD (Lei Geral de Proteção de Dados)
 
 ---
 
 ### 🎨 Requisitos de Usabilidade
 
-- Interface intuitiva para visualização dos dados  
-- Feedback claro em caso de erro ou sucesso  
-- Sugestões automáticas de melhoria de sono com base nos dados  
-- Design responsivo para dispositivos móveis
+- Interface intuitiva para visualização dos dados
 
 ---
 
-## 🔗 Endpoints RESTful (Exemplos)
+## 🔗 Endpoints RESTful 
 
 | Método | Endpoint                  | Descrição                                      |
 |--------|---------------------------|------------------------------------------------|
 | POST   | /usuarios                 | Cadastrar novo usuário                         |
 | PUT    | /usuarios/{id}            | Editar dados do usuário                        |
 | GET    | /usuarios/{id}            | Ver dados do usuário                           |
-| POST   | /usuarios/{id}/sono       | Registrar dados de sono                        |
-| GET    | /usuarios/{id}/sono       | Ver histórico de sono                          |
-| GET    | /usuarios/{id}/relatorio  | Gerar relatório personalizado                  |
-| GET    | /dicas-sono               | Listar dicas para melhorar o sono              |
-| GET    | /estatisticas/media-sono | Retornar média de sono da população            |
-| GET    | /disturbios               | Consultar tipos de distúrbios registrados      |
-| GET    | /painel                   | Visualizar painel geral                        |
+| POST   | /usuarios/{id}/sonoDiario       | Registrar dados de sono                        |
+| GET    | /usuarios/{id}/sonoDiario       | Ver histórico de sonogeral                        |
 
 ---
 
+#### 💡 Recursos extras
 
-São apenas sugestões abertas a discussão sobre o que é desnecessário e o que poderia ser adicionado.
+- Página do administrador
+- Calculadora de IMC
+- Avaliar qualidade do sono com base em multiplos fatores
+- Analisar correlação entre estilo de vida e qualidade de sono
+- Notificar usuário sobre padrões preocupantes
