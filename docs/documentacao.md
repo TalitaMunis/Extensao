@@ -38,22 +38,26 @@
 
 #### Diagrama modelo relacional do banco de dados
 
-```
-┌─────────────┐          ┌─────────────────────────────┐
-│  usuarios   │          │   registro_diario_sono      │
-│-------------│          │-----------------------------│
-│ Id (PK)     │◄─────────┤ Id (FK)                     │
-│ Sexo        │          │ Duracao_sono                │
-│ Idade       │          │ Qualidade_sono              │
-│ Cargo       │          │ Nivel_atividade_fisica      │
-│ Imc         │          │ Nivel_stress                │
-└─────────────┘          │ Pressao_arterial            │
-                         │ Media_frequencia_cardiaca   │
-                         │ Passos_dados_dia            │
-                         │ Disturbio_sono              │
-                         └─────────────────────────────┘
+...
+#### Diagrama modelo relacional do banco de dados
 
 ```
+      ┌─────────────┐          ┌─────────────┐          ┌─────────────────────────────┐
+      │  Usuario    │          │   Pessoa    │          │   registro_diario_sono      │
+      │-------------│          │-------------│          │-----------------------------│
+      │ Id (PK)     │◄─────────│ Usuario_id  │          │ Id (FK)                     │
+      │ Email       │          │ Id (PK)     │◄─────────│ Pessoa_id                   │
+      │ Senha       │          │ Nome        │          │ Duracao_sono                │
+      └─────────────┘          │ Peso        │          │ Qualidade_sono              │
+                               │ Altura      │          │ Nivel_atividade_fisica      │
+                               │ Sexo        │          │ Nivel_stress                │
+                               │ Idade       │          │ Pressao_arterial            │
+                               │ Cargo       │          │ Media_frequencia_cardiaca   │
+                               │ Imc         │          │ Passos_dados_dia            │
+                               └─────────────┘          │ Disturbio_sono              │
+                                                        └─────────────────────────────┘
+```
+...
 
 ### ⚙️ Requisitos Não Funcionais
  
