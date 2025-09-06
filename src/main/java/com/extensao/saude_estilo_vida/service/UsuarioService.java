@@ -14,22 +14,20 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public UsuarioDTO verUsuario(Long id) {
-        UsuarioDTO usuario = usuarioRepository.findById(id)
-                            .map(u -> new UsuarioDTO(u.getNome(),u.getEmail(),u.getIdade()))
-                            .orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
-        return new UsuarioDTO(usuario.getNome(), usuario.getEmail(), usuario.getIdade());
+    public UsuarioDTO verUsuario(Long id){
+      return usuarioRepository.findById(id)
+        .map(u -> new UsuarioDTO(u))
+        .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
     }
     
-    public UsuarioDTO criarUsuario(UsuarioDTO usuarioDTO) {
-        UsuarioModel usuario = new UsuarioModel();
-        usuario.setNome(usuarioDTO.getNome());
-        usuario.setEmail(usuarioDTO.getEmail());
-        usuario.setIdade(usuarioDTO.getIdade());
-        
-        UsuarioModel usuarioSalvo = usuarioRepository.save(usuario);
-        
-        return new UsuarioDTO(usuarioSalvo);
+    public UsuarioDTO cadastrarUsuario(UsuarioDTO usuarioDTO) {
+      UsuarioModel usuario = new UsuarioModel();
+      usuario.setEmail(usuarioDTO.getEmail());
+      usuario.setSenha(usuarioDTO.getSenha());
+      
+      UsuarioModel usuarioSalvo = usuarioRepository.save(usuario);
+      
+      return new UsuarioDTO(usuarioSalvo);
     }
 
 

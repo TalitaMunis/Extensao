@@ -16,21 +16,21 @@ import com.extensao.saude_estilo_vida.service.UsuarioService;
 @RequestMapping("/usuarios")
 public class UsuarioController {
     
-    public final UsuarioService usuarioService;
+    private final UsuarioService usuarioService;
 
     public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UsuarioDTO> obterUsuario(@PathVariable Long id) {
+    public ResponseEntity<UsuarioDTO> verUsuario(@PathVariable Long id) {
         UsuarioDTO dto = usuarioService.verUsuario(id);
         return ResponseEntity.ok(dto);
     }
 
-    @PostMapping("/cadastrar-usuario")
+    @PostMapping
     public ResponseEntity<UsuarioDTO> cadastrarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-        UsuarioDTO dto = usuarioService.criarUsuario(usuarioDTO);
+        UsuarioDTO dto = usuarioService.cadastrarUsuario(usuarioDTO);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(dto);
