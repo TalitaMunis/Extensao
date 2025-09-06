@@ -23,14 +23,14 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UsuarioDTO> obterUsuario(@PathVariable Long id) {
+    public ResponseEntity<UsuarioDTO> verUsuario(@PathVariable Long id) {
         UsuarioDTO dto = usuarioService.verUsuario(id);
         return ResponseEntity.ok(dto);
     }
 
     @PostMapping("/cadastrar-usuario")
     public ResponseEntity<UsuarioDTO> cadastrarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-        UsuarioDTO dto = usuarioService.criarUsuario(usuarioDTO);
+        UsuarioDTO dto = usuarioService.cadastrarUsuario(usuarioDTO);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(dto);

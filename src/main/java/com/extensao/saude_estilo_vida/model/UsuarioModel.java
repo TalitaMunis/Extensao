@@ -1,59 +1,36 @@
 package com.extensao.saude_estilo_vida.model;
 
-import jakarta.annotation.Generated;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_usuarios")
 public class UsuarioModel {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, name = "nome_usuario")
-    private String nome;
-
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false, name = "idade_usuario", length = 2)
-    private int idade;
+    //@Column(nullable = false)
+    private String senha;
 
-    public Long getId() {
-        return id;
-    }
+    // Relacionamento 1:1 com Pessoa
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private PessoaModel pessoa;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public UsuarioModel() {}
 
-    public String getNome() {
-        return nome;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
-    public String getEmail() {
-        return email;
-    }
+    public String getSenha() { return senha; }
+    public void setSenha(String senha) { this.senha = senha; }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
+    public PessoaModel getPessoa() { return pessoa; }
+    public void setPessoa(PessoaModel pessoa) { this.pessoa = pessoa; }
 }
