@@ -3,21 +3,33 @@ package com.extensao.saude_estilo_vida.dto;
 import com.extensao.saude_estilo_vida.model.PessoaModel;
 
 public class PessoaDTO {
+  Long idPessoa;
   String nome;
   int idade;
   double peso;
   double altura;
   String sexo;
+  Long idUsuario;
 
   public PessoaDTO(){}
 
   public PessoaDTO(PessoaModel pessoa) {
+      this.idPessoa = pessoa.getId();
       this.nome = pessoa.getNome();
       this.idade = pessoa.getIdade();
       this.peso = pessoa.getPeso();
       this.altura = pessoa.getAltura();
       this.sexo = pessoa.getSexo();
+      this.idUsuario = pessoa.getUsuario().getId();
   }
+  
+  public Long getIdUsuario() {
+    return idUsuario;
+  }
+
+  public void setIdUsuario(Long idUsuario) {
+    this.idUsuario = idUsuario;
+  }  
 
   public String getNome() {
     return nome;

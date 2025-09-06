@@ -2,19 +2,23 @@ package com.extensao.saude_estilo_vida.dto;
 import com.extensao.saude_estilo_vida.model.UsuarioModel;
 
 public class UsuarioDTO {
+    private Long idUsuario;
     private String email;
     private String senha;
     
     public UsuarioDTO() {}
 
-    public UsuarioDTO(String email, String senha) {
-        this.email = email;
-        this.senha = senha;
+    public UsuarioDTO(UsuarioModel usuario){
+        this.idUsuario = usuario.getId();
+        this.email = usuario.getEmail();
     }
 
-    public UsuarioDTO(UsuarioModel usuario){
-        this.email = usuario.getEmail();
-        this.senha = usuario.getSenha();
+    public Long getId() {
+        return idUsuario;
+    }
+
+    public void setId(Long id) {
+        this.idUsuario = id;
     }
     
     public String getEmail() {

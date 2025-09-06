@@ -27,11 +27,11 @@ public class PessoaService {
       .orElseThrow(() -> new RuntimeException("Erro ao buscar pessoa"));
   }
 
-  public PessoaDTO cadastrarPessoa(PessoaDTO pessoaDTO, Long usuarioId){
+  public PessoaDTO cadastrarPessoa(PessoaDTO pessoaDTO){
     PessoaModel pessoa = new PessoaModel();
-    UsuarioModel usuario = usuarioRepository.findById(usuarioId)
+    System.out.println(pessoaDTO);
+    UsuarioModel usuario = usuarioRepository.findById(pessoaDTO.getIdUsuario())
       .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
-
 
     if(usuario.getPessoa() == null){
       pessoa.setNome(pessoaDTO.getNome());
@@ -40,7 +40,8 @@ public class PessoaService {
       pessoa.setPeso(pessoaDTO.getPeso());
       pessoa.setSexo(pessoaDTO.getSexo());
       pessoa.setUsuario(usuario);
-  
+      usuario.setPessoa(pessoa);
+
       pessoaRepository.save(pessoa);
       
       return new PessoaDTO(pessoa);
