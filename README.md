@@ -1,4 +1,7 @@
 # Trabalho de Extensão
+
+- Equipe: Talita Munis, Adilson Gonzaga, Jonas Lucas, Thiago Lima, Pedro Vieira, Gabriel dos Santos
+- 
 # 💤 Saúde e Estilo de Vida do Sono – API
 
 Este projeto de extensão tem como objetivo desenvolver uma API que utiliza dados sobre hábitos de sono, estilo de vida e saúde cardiovascular para promover o bem-estar da sociedade. Através da análise de padrões e correlações, buscamos oferecer insights úteis para profissionais da saúde, pesquisadores e o público em geral.
