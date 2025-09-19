@@ -14,7 +14,7 @@ import com.extensao.saude_estilo_vida.dto.UsuarioDTO;
 import com.extensao.saude_estilo_vida.service.UsuarioService;
 
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/home")
 public class UsuarioController {
     
     private final UsuarioService usuarioService;
@@ -29,7 +29,7 @@ public class UsuarioController {
         return ResponseEntity.ok(dto);
     }
 
-    @PostMapping
+    @PostMapping("/cadastrar")
     public ResponseEntity<UsuarioDTO> cadastrarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
         UsuarioDTO dto = usuarioService.cadastrarUsuario(usuarioDTO);
         return ResponseEntity
