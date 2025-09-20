@@ -6,5 +6,5 @@ import com.extensao.saude_estilo_vida.model.UsuarioModel;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<UsuarioModel, Long> {
-    
+    UsuarioModel findByEmailAndSenha(String email, String senha);
 }

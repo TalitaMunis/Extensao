@@ -30,5 +30,12 @@ public class UsuarioService {
       return new UsuarioDTO(usuarioSalvo);
     }
 
-
+    public String login(String email, String senha){
+      UsuarioModel usuario = usuarioRepository.findByEmailAndSenha(email, senha);
+      if(usuario != null){
+        return "Login realizado com sucesso!";
+      } else {
+        return "Email ou senha incorretos.";
+      }
+    }
 }

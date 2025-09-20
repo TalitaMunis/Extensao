@@ -2,6 +2,7 @@ package com.extensao.saude_estilo_vida.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +15,7 @@ import com.extensao.saude_estilo_vida.dto.UsuarioDTO;
 import com.extensao.saude_estilo_vida.service.UsuarioService;
 
 @RestController
-@RequestMapping("/home")
+@RequestMapping("/")
 public class UsuarioController {
     
     private final UsuarioService usuarioService;
@@ -35,5 +36,11 @@ public class UsuarioController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(dto);
+    }
+
+    @PostMapping
+    public ResponseEntity<?> loginUsuario(@RequestBody UsuarioDTO usuarioDTO){
+        String response = usuarioService.login(usuarioDTO.getEmail(),usuarioDTO.getSenha());
+        return ResponseEntity.ok().body(response);
     }
 }
