@@ -29,7 +29,6 @@ public class PessoaService {
 
   public PessoaDTO cadastrarPessoa(PessoaDTO pessoaDTO){
     PessoaModel pessoa = new PessoaModel();
-    System.out.println(pessoaDTO);
     UsuarioModel usuario = usuarioRepository.findById(pessoaDTO.getIdUsuario())
       .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 

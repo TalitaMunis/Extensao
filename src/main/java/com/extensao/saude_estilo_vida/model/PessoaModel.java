@@ -29,6 +29,9 @@ public class PessoaModel {
     @JoinColumn(name = "usuario_id", nullable = false, unique = true)
     private UsuarioModel usuario;
 
+    @OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL)
+    private InfoPessoaisModel infoPessoais;
+
     public PessoaModel(){}
 
     public PessoaModel(String nome, int idade, double peso, double altura, String sexo) {
