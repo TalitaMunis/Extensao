@@ -23,6 +23,14 @@ public class PessoaDTO {
       this.idUsuario = pessoa.getUsuario().getId();
   }
   
+  public Long getIdPessoa() {
+    return idPessoa;
+  } 
+
+  public void setIdPessoa(Long idPessoa) {
+    this.idPessoa = idPessoa;
+  }
+
   public Long getIdUsuario() {
     return idUsuario;
   }

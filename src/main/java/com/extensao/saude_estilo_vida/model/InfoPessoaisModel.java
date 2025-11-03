@@ -28,13 +28,13 @@ public class InfoPessoaisModel {
   private String pressaoArterial;
 
   @Column(nullable = true, name = "frequencia_cardiaca")
-  private String frequenciaCardiaca;
+  private Double frequenciaCardiaca;
 
   @Column(nullable = true, name = "nivel_atividade_fisica")
-  private Byte nivelAtividadeFisica;
+  private String nivelAtividadeFisica;
 
   @Column(nullable = true, name = "nivel_estresse")
-  private Byte nivelEstresse;
+  private String nivelEstresse;
 
   @Column(nullable = true, name = "disturbio")
   private String disturbio;
@@ -80,27 +80,27 @@ public class InfoPessoaisModel {
     this.pressaoArterial = pressaoArterial;
   }
 
-  public String getFrequenciaCardiaca() {
+  public Double getFrequenciaCardiaca() {
     return frequenciaCardiaca;
   }
 
-  public void setFrequenciaCardiaca(String frequenciaCardiaca) {
+  public void setFrequenciaCardiaca(Double frequenciaCardiaca) {
     this.frequenciaCardiaca = frequenciaCardiaca;
   }
 
-  public Byte getNivelAtividadeFisica() {
+  public String getNivelAtividadeFisica() {
     return nivelAtividadeFisica;
   }
 
-  public void setNivelAtividadeFisica(Byte nivelAtividadeFisica) {
+  public void setNivelAtividadeFisica(String nivelAtividadeFisica) {
     this.nivelAtividadeFisica = nivelAtividadeFisica;
   }
 
-  public Byte getNivelEstresse() {
+  public String getNivelEstresse() {
     return nivelEstresse;
   }
 
-  public void setNivelEstresse(Byte nivelEstresse) {
+  public void setNivelEstresse(String nivelEstresse) {
     this.nivelEstresse = nivelEstresse;
   }
 
@@ -112,5 +112,12 @@ public class InfoPessoaisModel {
     this.disturbio = disturbio;
   }
 
+  public PessoaModel getPessoa() {
+    return pessoa;
+  }
+
+  public void setPessoa(PessoaModel pessoa) {
+    this.pessoa = pessoa;
+  }
   
 }

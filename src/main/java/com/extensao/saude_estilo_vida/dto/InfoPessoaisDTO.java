@@ -6,11 +6,11 @@ import com.extensao.saude_estilo_vida.model.InfoPessoaisModel;
 public class InfoPessoaisDTO {
   private Double duracaoSono;
   private String pressaoArterial;
-  private String frequenciaCardiaca;
-  private Byte nivelAtividadeFisica;
-  private Byte nivelEstresse;
+  private Double frequenciaCardiaca;
+  private String nivelAtividadeFisica;
+  private String nivelEstresse;
   private String disturbio;
-  //private Long pessoaId;
+  private Long pessoaId;
 
   public InfoPessoaisDTO() {
   }
@@ -41,27 +41,27 @@ public class InfoPessoaisDTO {
     this.pressaoArterial = pressaoArterial;
   }
 
-  public String getFrequenciaCardiaca() {
+  public Double getFrequenciaCardiaca() {
     return frequenciaCardiaca;
   }
 
-  public void setFrequenciaCardiaca(String frequenciaCardiaca) {
+  public void setFrequenciaCardiaca(Double frequenciaCardiaca) {
     this.frequenciaCardiaca = frequenciaCardiaca;
   }
 
-  public Byte getNivelAtividadeFisica() {
+  public String getNivelAtividadeFisica() {
     return nivelAtividadeFisica;
   }
 
-  public void setNivelAtividadeFisica(Byte nivelAtividadeFisica) {
+  public void setNivelAtividadeFisica(String nivelAtividadeFisica) {
     this.nivelAtividadeFisica = nivelAtividadeFisica;
   }
 
-  public Byte getNivelEstresse() {
+  public String getNivelEstresse() {
     return nivelEstresse;
   }
 
-  public void setNivelEstresse(Byte nivelEstresse) {
+  public void setNivelEstresse(String nivelEstresse) {
     this.nivelEstresse = nivelEstresse;
   }
 
@@ -73,11 +73,11 @@ public class InfoPessoaisDTO {
     this.disturbio = disturbio;
   }
 
-  // public Long getPessoaId() {
-  //   return pessoaId;
-  // }
+  public Long getPessoaId() {
+    return pessoaId;
+  }
 
-  // public void setPessoaId(Long pessoaId) {
-  //   this.pessoaId = pessoaId;
-  // }
+  public void setPessoaId(Long pessoaId) {
+    this.pessoaId = pessoaId;
+  }
 }

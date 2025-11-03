@@ -40,7 +40,7 @@ public class UsuarioController {
 
     @PostMapping
     public ResponseEntity<?> loginUsuario(@RequestBody UsuarioDTO usuarioDTO){
-        String response = usuarioService.login(usuarioDTO.getEmail(),usuarioDTO.getSenha());
-        return ResponseEntity.ok().body(response);
+        ResponseEntity<?> response = usuarioService.login(usuarioDTO.getEmail(),usuarioDTO.getSenha());
+        return response;
     }
 }

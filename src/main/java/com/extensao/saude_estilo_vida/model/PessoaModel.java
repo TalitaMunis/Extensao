@@ -97,4 +97,12 @@ public class PessoaModel {
     public void setUsuario(UsuarioModel usuario) {
         this.usuario = usuario;
     }
+
+    public InfoPessoaisModel getInfoPessoais() {
+        return infoPessoais;
+    }
+
+    public void setInfoPessoais(InfoPessoaisModel infoPessoais) {
+        this.infoPessoais = infoPessoais;
+    }
 }

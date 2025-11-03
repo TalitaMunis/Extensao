@@ -8,9 +8,11 @@ import com.extensao.saude_estilo_vida.dto.InfoPessoaisDTO;
 @Service
 public class InfoPessoaisService {
   private final InfoPessoaisRepository infoPessoaisRepository;
+  private final PessoaService pessoaService;
 
-  public InfoPessoaisService(InfoPessoaisRepository infoPessoaisRepository) {
+  public InfoPessoaisService(InfoPessoaisRepository infoPessoaisRepository, PessoaService pessoaService) {
     this.infoPessoaisRepository = infoPessoaisRepository;
+    this.pessoaService = pessoaService;
   }
 
   public InfoPessoaisDTO cadastrarInfoPessoais(InfoPessoaisDTO infoPessoaisDTO){

@@ -1,7 +1,5 @@
 package com.extensao.saude_estilo_vida.controller;
 
-import java.lang.ProcessHandle.Info;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +30,7 @@ public class InfoPessoaisController {
             .body(dto);
   }
 
-  @GetMapping("/")
+  @GetMapping("/{pessoaId}")
   public ResponseEntity<InfoPessoaisDTO> verInfo(@PathVariable Long pessoaId){
     InfoPessoaisDTO dto = infoPessoaisService.verInfo(pessoaId);
     return ResponseEntity.ok(dto);

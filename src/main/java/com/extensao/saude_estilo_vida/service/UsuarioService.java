@@ -1,6 +1,8 @@
 package com.extensao.saude_estilo_vida.service;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.http.HttpStatus;
 import com.extensao.saude_estilo_vida.repository.UsuarioRepository;
 import com.extensao.saude_estilo_vida.model.UsuarioModel;
 import com.extensao.saude_estilo_vida.dto.UsuarioDTO;
@@ -30,12 +32,14 @@ public class UsuarioService {
       return new UsuarioDTO(usuarioSalvo);
     }
 
-    public String login(String email, String senha){
+    public ResponseEntity<?> login(String email, String senha){
       UsuarioModel usuario = usuarioRepository.findByEmailAndSenha(email, senha);
       if(usuario != null){
-        return "Login realizado com sucesso!";
+
+        UsuarioDTO dto = new UsuarioDTO(usuario);
+        return ResponseEntity.ok().body(dto);
       } else {
-        return "Email ou senha incorretos.";
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
       }
     }
 }
